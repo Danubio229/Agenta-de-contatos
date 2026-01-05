@@ -1,0 +1,99 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Procurador de Contato</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+
+        input {
+            padding: 10px;
+            font-size: 16px;
+            margin-bottom: 10px;
+            width: 300px;
+            box-sizing: border-box;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            background: #7FFFD4;
+        }
+        input::placeholder {
+            color:blue;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background:#9932CC;
+            color: white;
+            border: none;
+            border-radius: 25px;
+        }
+        button:hover {
+            background: #8A2BE2;
+            opacity: 0.8;
+        }
+        button:active {
+            transform: scale(0.98);
+            opacity: 0.6;
+        }
+
+        p {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<body>
+  <img src="./contato.png" alt="Imagem-da-agenda">
+    <input id="input" placeholder="Digite o contato que deseja procurar" autofocus>
+    <p>Diga-me o nome da pessoal que procura 😊</p>
+    <button onclick="search()">Procurar Contato</button>
+
+    <script>
+       let p = document.querySelector("p");
+       let input = document.getElementById("input");
+
+       const contacts = [
+        { name: "Alice",
+          phone: "123-456-7890"
+        },
+        {
+          name: "Bob",
+          phone: "987-654-3210"
+        },
+        {
+          name: "Charlie",
+          phone: "555-555-5555"
+        }
+       ]
+
+       function search(){
+        for(let i = 0; i < contacts.length; i++){
+            if(input.value.toLowerCase() === contacts[i].name.toLowerCase()){
+                p.innerText = `Contato encontrado: ${contacts[i].name}, Telefone: ${contacts[i].phone}`;
+                break   
+            }else{
+                p.innerText = "Contato não encontrado 😢";
+            }
+        }
+       }
+
+    </script>
+
+</body>
+
+</html>
